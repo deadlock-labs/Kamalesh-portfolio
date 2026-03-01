@@ -123,9 +123,8 @@ export default function BlogPostPage() {
 
   useEffect(() => {
     const fetchPost = async () => {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080/api';
       try {
-        const res = await fetch(`${apiUrl}/blog/${slug}`);
+        const res = await fetch(`/api/blog/${slug}`);
         if (res.ok) {
           setPost(await res.json());
         } else {

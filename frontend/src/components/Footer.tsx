@@ -44,7 +44,7 @@ export default function Footer({
           </div>
 
           <p className="text-white/20 text-sm flex items-center gap-1">
-            Built with <FaHeart className="text-[#06b6d4] text-xs" /> using Next.js & Go
+            Built with <FaHeart className="text-[#06b6d4] text-xs" /> using Next.js
           </p>
         </div>
       </div>
