@@ -229,7 +229,7 @@ func GetMediumPosts(w http.ResponseWriter, r *http.Request) {
 	}
 	defer resp.Body.Close()
 
-	body, err := io.ReadAll(resp.Body)
+	body, err := io.ReadAll(io.LimitReader(resp.Body, 5*1024*1024)) // 5MB limit
 	if err != nil {
 		respondError(w, http.StatusInternalServerError, "Failed to read Medium feed")
 		return
@@ -305,6 +305,11 @@ func CreateContact(w http.ResponseWriter, r *http.Request) {
 
 	if c.Name == "" || c.Email == "" || c.Message == "" {
 		respondError(w, http.StatusBadRequest, "Name, email, and message are required")
+		return
+	}
+
+	if !strings.Contains(c.Email, "@") || !strings.Contains(c.Email, ".") {
+		respondError(w, http.StatusBadRequest, "Invalid email address")
 		return
 	}
 

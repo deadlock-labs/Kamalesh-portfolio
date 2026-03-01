@@ -4,6 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"strings"
 
 	"github.com/deadlock-labs/portfolio-backend/database"
 	"github.com/deadlock-labs/portfolio-backend/handlers"
@@ -49,8 +50,15 @@ func main() {
 	api.HandleFunc("/contact", handlers.CreateContact).Methods("POST")
 
 	// CORS
+	allowedOrigins := os.Getenv("CORS_ORIGINS")
+	var origins []string
+	if allowedOrigins != "" {
+		origins = strings.Split(allowedOrigins, ",")
+	} else {
+		origins = []string{"http://localhost:3000", "http://localhost:3001"}
+	}
 	c := cors.New(cors.Options{
-		AllowedOrigins:   []string{"http://localhost:3000", "http://localhost:3001"},
+		AllowedOrigins:   origins,
 		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
 		AllowedHeaders:   []string{"Content-Type", "Authorization"},
 		AllowCredentials: true,
