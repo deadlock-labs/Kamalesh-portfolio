@@ -64,8 +64,8 @@ export async function GET() {
     const items = parseRSSItems(xml);
 
     const posts = items.map((item) => {
-      let desc = item.description;
-      const thumbnail = extractThumbnail(desc);
+      const thumbnail = extractThumbnail(item.description);
+      let desc = stripHTMLTags(item.description);
 
       if (desc.length > 300) {
         desc = desc.slice(0, 300) + '...';
@@ -74,7 +74,7 @@ export async function GET() {
       return {
         title: item.title,
         link: item.link,
-        description: stripHTMLTags(desc),
+        description: desc,
         pub_date: item.pubDate,
         thumbnail,
       };

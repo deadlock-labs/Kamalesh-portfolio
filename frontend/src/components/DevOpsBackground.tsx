@@ -177,7 +177,7 @@ export default function DevOpsBackground() {
 
             // Curved pipeline connections
             const cpx = (x + nx) / 2;
-            const cpy = y + (Math.random() > 0.5 ? 20 : -20);
+            const cpy = y + ((row + i) % 2 === 0 ? 20 : -20);
             ctx.quadraticCurveTo(cpx, cpy, nx, ny);
             ctx.stroke();
 
@@ -231,14 +231,10 @@ export default function DevOpsBackground() {
         if (p.y > h) p.y = 0;
 
         ctx.beginPath();
-        ctx.fillStyle = p.color.replace(')', `, ${p.opacity})`).replace('rgb', 'rgba');
-        const hexToRgba = (hex: string, a: number) => {
-          const r = parseInt(hex.slice(1, 3), 16);
-          const g = parseInt(hex.slice(3, 5), 16);
-          const b = parseInt(hex.slice(5, 7), 16);
-          return `rgba(${r},${g},${b},${a})`;
-        };
-        ctx.fillStyle = hexToRgba(p.color, p.opacity);
+        const r = parseInt(p.color.slice(1, 3), 16);
+        const g = parseInt(p.color.slice(3, 5), 16);
+        const b = parseInt(p.color.slice(5, 7), 16);
+        ctx.fillStyle = `rgba(${r},${g},${b},${p.opacity})`;
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
       }
@@ -298,7 +294,7 @@ export default function DevOpsBackground() {
       const hexCols = Math.ceil(w / (hexSize * Math.sqrt(3)));
       for (let row = 0; row < hexRows; row++) {
         for (let col = 0; col < hexCols; col++) {
-          if (Math.random() > 0.003) continue; // Very sparse
+          if ((row * 7 + col * 13) % 337 !== 0) continue; // Deterministic sparse selection
           const cx = col * hexSize * Math.sqrt(3) + (row % 2 ? hexSize * Math.sqrt(3) / 2 : 0);
           const cy = row * hexSize * 1.5;
           const pulseOpacity = 0.02 + Math.sin(time * 0.001 + row + col) * 0.01;
