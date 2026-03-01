@@ -32,17 +32,17 @@ export default function Navbar() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? 'bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20'
+          ? 'bg-[#09090b]/90 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20'
           : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#00d4ff] to-[#7c3aed] flex items-center justify-center text-white font-bold text-sm group-hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-shadow">
+          <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#06b6d4] to-[#8b5cf6] flex items-center justify-center text-white font-bold text-sm group-hover:shadow-[0_0_20px_rgba(0,212,255,0.4)] transition-shadow">
             K
           </div>
           <span className="font-semibold text-white/90 group-hover:text-white transition-colors">
-            Kamalesh<span className="text-[#00d4ff]">.</span>dev
+            Kamalesh<span className="text-[#06b6d4]">.</span>dev
           </span>
         </Link>
 
@@ -52,7 +52,7 @@ export default function Navbar() {
             <a
               key={item.label}
               href={item.href}
-              className="px-4 py-2 text-sm text-white/60 hover:text-[#00d4ff] transition-colors rounded-lg hover:bg-white/5"
+              className="px-4 py-2 text-sm text-white/60 hover:text-[#06b6d4] transition-colors rounded-lg hover:bg-white/5"
             >
               {item.label}
             </a>
@@ -74,14 +74,14 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="md:hidden bg-[#0a0a0a]/95 backdrop-blur-xl border-b border-white/5 px-6 pb-4"
+          className="md:hidden bg-[#09090b]/95 backdrop-blur-xl border-b border-white/5 px-6 pb-4"
         >
           {navItems.map((item) => (
             <a
               key={item.label}
               href={item.href}
               onClick={() => setMobileOpen(false)}
-              className="block py-3 text-white/60 hover:text-[#00d4ff] transition-colors border-b border-white/5 last:border-0"
+              className="block py-3 text-white/60 hover:text-[#06b6d4] transition-colors border-b border-white/5 last:border-0"
             >
               {item.label}
             </a>

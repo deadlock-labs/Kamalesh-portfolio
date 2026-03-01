@@ -10,7 +10,7 @@ import Projects from '@/components/Projects';
 import Blog from '@/components/Blog';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import type { Profile, Skill, Experience as ExpType, Project, BlogPost, MediumPost } from '@/lib/api';
+import type { Profile, Skill, Experience as ExpType, Project, MediumPost } from '@/lib/api';
 
 // Fallback data when API is not available
 const fallbackProfile: Profile = {
@@ -51,19 +51,75 @@ const fallbackSkills: Skill[] = [
 const fallbackExperiences: ExpType[] = [
   {
     id: 1,
-    company: 'Cloud Infrastructure Projects',
-    role: 'DevOps Engineer',
-    duration: '2022 - Present',
-    description: 'Designed and maintained cloud infrastructure on AWS using Terraform and CloudFormation. Implemented CI/CD pipelines with Jenkins and GitHub Actions. Managed Kubernetes clusters for microservices deployment. Automated infrastructure provisioning reducing deployment time by 70%.',
+    company: 'Ford Motor Company',
+    role: 'DevSecOps Engineer',
+    duration: 'Jul 2024 - Present',
+    description: 'Collaborating with NVC, IMG, and NA teams for Monorepo Architecture using Nx tool to manage microfrontends. Contributed to Tekton CI/CD pipeline development. Supported OpenShift CaaS infrastructure. Integrated Dynatrace with OneAgent for observability. Created a self-hosted cache server reducing Nx + OpenAPI build times by ~60%. Supported canary deployment strategies. Built a reverse proxy server in Golang for secure GitHub webhook communication with private networks.',
     sort_order: 1,
   },
   {
     id: 2,
-    company: 'Open Source & Community',
-    role: 'Technical Blogger & Contributor',
-    duration: '2021 - Present',
-    description: 'Active technical blogger on Medium covering DevOps practices, cloud-native technologies, and automation. Contributing to open-source DevOps tools and sharing knowledge with the developer community through articles and tutorials.',
+    company: 'Medium',
+    role: 'Technical Writer',
+    duration: 'Jul 2023 - Present',
+    description: 'Self-employed technical writer covering DevOps, Docker, Cybersecurity, Ethical Hacking, Python, and Software Development topics. Sharing knowledge and best practices with the developer community through in-depth articles and tutorials.',
     sort_order: 2,
+  },
+  {
+    id: 3,
+    company: 'Seervitax',
+    role: 'Full Stack Engineer',
+    duration: 'May 2023 - Present',
+    description: 'Freelance full stack development using HTML, CSS, Bootstrap, and API integrations for Seervi Tax Consultancy. Building and maintaining web applications for tax consulting services.',
+    sort_order: 3,
+  },
+  {
+    id: 4,
+    company: 'BLeap Digital',
+    role: 'Infrastructure Engineer',
+    duration: 'May 2024 - Jun 2024',
+    description: 'Freelance infrastructure engineering with PHP, Laravel, Docker, Apache, and DigitalOcean. Set up and maintained deployment infrastructure for digital products.',
+    sort_order: 4,
+  },
+  {
+    id: 5,
+    company: 'Alexandria',
+    role: 'WordPress Developer',
+    duration: 'May 2024 - Jun 2024',
+    description: 'Freelance WordPress development including deployment and hosting management using Hostinger and GoDaddy platforms.',
+    sort_order: 5,
+  },
+  {
+    id: 6,
+    company: 'Aaimaa Solutions',
+    role: 'DevOps Engineer',
+    duration: 'Jan 2024 - Feb 2024',
+    description: 'Internship focused on Docker, Frappe framework, AWS, and Amazon EKS. Contributed to containerized deployment workflows and cloud infrastructure management.',
+    sort_order: 6,
+  },
+  {
+    id: 7,
+    company: 'RadicalX (Reality AI Lab)',
+    role: 'Software Developer',
+    duration: 'Dec 2023 - Jan 2024',
+    description: 'Internship working on software development projects at Reality AI Lab, contributing to AI-powered applications and development workflows.',
+    sort_order: 7,
+  },
+  {
+    id: 8,
+    company: 'Technocrats Robotics',
+    role: 'ROBOCON Special Team',
+    duration: 'Jul 2021 - Oct 2023',
+    description: 'Full-time member of the ROBOCON Special Team, working on robotics competition projects. Collaborated on-site in Chennai on design, development, and competition preparation.',
+    sort_order: 8,
+  },
+  {
+    id: 9,
+    company: 'Ford Motor Company',
+    role: 'Software Developer Intern',
+    duration: 'May 2023 - Jun 2023',
+    description: 'Internship focused on Cybersecurity, Google Cloud Platform (GCP), React.js, and related technologies. Contributed to internal tools and security initiatives.',
+    sort_order: 9,
   },
 ];
 
@@ -74,18 +130,11 @@ const fallbackProjects: Project[] = [
   { id: 4, title: 'GitOps Deployment Platform', description: 'Fully automated GitOps deployment platform using ArgoCD, Helm, and Kubernetes for zero-downtime deployments.', tech_stack: 'ArgoCD,Helm,Kubernetes,Terraform', link: 'https://github.com/kkamalesh117', image: '' },
 ];
 
-const fallbackBlogPosts: BlogPost[] = [
-  { id: 1, title: 'Getting Started with Kubernetes: A DevOps Guide', slug: 'getting-started-kubernetes-devops', content: '', excerpt: 'A comprehensive guide to getting started with Kubernetes for DevOps engineers, covering key concepts and best practices.', tags: 'kubernetes,devops,containers,orchestration', published: true, created_at: '2024-01-15T00:00:00Z', updated_at: '2024-01-15T00:00:00Z' },
-  { id: 2, title: 'Terraform Best Practices for Production Infrastructure', slug: 'terraform-best-practices-production', content: '', excerpt: 'Essential Terraform best practices for managing production infrastructure safely and efficiently.', tags: 'terraform,iac,devops,aws,infrastructure', published: true, created_at: '2024-02-10T00:00:00Z', updated_at: '2024-02-10T00:00:00Z' },
-  { id: 3, title: 'Building CI/CD Pipelines with GitHub Actions', slug: 'cicd-github-actions-guide', content: '', excerpt: 'Learn how to build robust CI/CD pipelines using GitHub Actions for automated testing and deployment.', tags: 'github-actions,cicd,automation,devops', published: true, created_at: '2024-03-05T00:00:00Z', updated_at: '2024-03-05T00:00:00Z' },
-];
-
 export default function Home() {
   const [profile, setProfile] = useState<Profile>(fallbackProfile);
   const [skills, setSkills] = useState<Skill[]>(fallbackSkills);
   const [experiences, setExperiences] = useState<ExpType[]>(fallbackExperiences);
   const [projects, setProjects] = useState<Project[]>(fallbackProjects);
-  const [blogPosts, setBlogPosts] = useState<BlogPost[]>(fallbackBlogPosts);
   const [mediumPosts, setMediumPosts] = useState<MediumPost[]>([]);
 
   useEffect(() => {
@@ -93,12 +142,11 @@ export default function Home() {
 
     const fetchData = async () => {
       try {
-        const [profileRes, skillsRes, expRes, projRes, blogRes, mediumRes] = await Promise.allSettled([
+        const [profileRes, skillsRes, expRes, projRes, mediumRes] = await Promise.allSettled([
           fetch(`${apiUrl}/profile`),
           fetch(`${apiUrl}/skills`),
           fetch(`${apiUrl}/experiences`),
           fetch(`${apiUrl}/projects`),
-          fetch(`${apiUrl}/blog`),
           fetch(`${apiUrl}/medium`),
         ]);
 
@@ -114,9 +162,6 @@ export default function Home() {
         if (projRes.status === 'fulfilled' && projRes.value.ok) {
           setProjects(await projRes.value.json());
         }
-        if (blogRes.status === 'fulfilled' && blogRes.value.ok) {
-          setBlogPosts(await blogRes.value.json());
-        }
         if (mediumRes.status === 'fulfilled' && mediumRes.value.ok) {
           setMediumPosts(await mediumRes.value.json());
         }
@@ -129,7 +174,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#0a0a0a]">
+    <main className="min-h-screen bg-[#09090b]">
       <Navbar />
       <Hero
         name={profile.name}
@@ -144,7 +189,7 @@ export default function Home() {
       <Skills skills={skills} />
       <Experience experiences={experiences} />
       <Projects projects={projects} />
-      <Blog posts={blogPosts} mediumPosts={mediumPosts} />
+      <Blog mediumPosts={mediumPosts} />
       <Contact
         email={profile.email}
         linkedin={profile.linkedin}

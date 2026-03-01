@@ -141,19 +141,19 @@ export default function BlogPostPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-[#00d4ff] border-t-transparent rounded-full animate-spin" />
+      <div className="min-h-screen bg-[#09090b] flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-[#06b6d4] border-t-transparent rounded-full animate-spin" />
       </div>
     );
   }
 
   if (!post) {
     return (
-      <div className="min-h-screen bg-[#0a0a0a]">
+      <div className="min-h-screen bg-[#09090b]">
         <Navbar />
         <div className="pt-32 text-center">
           <h1 className="text-3xl font-bold text-white mb-4">Post Not Found</h1>
-          <Link href="/#blog" className="text-[#00d4ff] hover:underline">
+          <Link href="/#blog" className="text-[#06b6d4] hover:underline">
             ← Back to blog
           </Link>
         </div>
@@ -162,13 +162,13 @@ export default function BlogPostPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
+    <div className="min-h-screen bg-[#09090b]">
       <Navbar />
       <article className="pt-32 pb-24 max-w-3xl mx-auto px-6">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
           <Link
             href="/#blog"
-            className="inline-flex items-center gap-2 text-white/40 hover:text-[#00d4ff] transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-white/40 hover:text-[#06b6d4] transition-colors mb-8"
           >
             <HiArrowLeft /> Back to blog
           </Link>
@@ -189,14 +189,14 @@ export default function BlogPostPage() {
             {post.tags.split(',').map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 rounded-full bg-white/5 border border-white/5 text-xs font-mono text-[#00d4ff]/60"
+                className="px-3 py-1 rounded-full bg-white/5 border border-white/5 text-xs font-mono text-[#06b6d4]/60"
               >
                 #{tag.trim()}
               </span>
             ))}
           </div>
 
-          <div className="prose prose-invert prose-sm md:prose-base max-w-none prose-headings:text-white prose-p:text-white/60 prose-strong:text-white/80 prose-code:text-[#00d4ff] prose-code:bg-white/5 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-[#111] prose-pre:border prose-pre:border-white/5 prose-a:text-[#00d4ff] prose-li:text-white/60">
+          <div className="prose prose-invert prose-sm md:prose-base max-w-none prose-headings:text-white prose-p:text-white/60 prose-strong:text-white/80 prose-code:text-[#06b6d4] prose-code:bg-white/5 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-pre:bg-[#111] prose-pre:border prose-pre:border-white/5 prose-a:text-[#06b6d4] prose-li:text-white/60">
             <ReactMarkdown>{post.content}</ReactMarkdown>
           </div>
         </motion.div>

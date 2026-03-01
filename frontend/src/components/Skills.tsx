@@ -54,7 +54,7 @@ const iconMap: Record<string, React.ReactNode> = {
 
 export default function Skills({ skills }: { skills: Skill[] }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   // Group skills by category
   const grouped = skills.reduce(
@@ -70,12 +70,12 @@ export default function Skills({ skills }: { skills: Skill[] }) {
     <section id="skills" className="py-24 relative">
       <div className="max-w-7xl mx-auto px-6" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-mono text-[#00d4ff] tracking-wider uppercase">Tech Stack</span>
+          <span className="text-sm font-mono text-[#06b6d4] tracking-wider uppercase">Tech Stack</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-3 text-white">
             Skills & <span className="gradient-text">Technologies</span>
           </h2>
@@ -88,12 +88,12 @@ export default function Skills({ skills }: { skills: Skill[] }) {
           {Object.entries(grouped).map(([category, categorySkills], catIdx) => (
             <motion.div
               key={category}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: catIdx * 0.1 }}
             >
               <h3 className="text-lg font-semibold text-white/60 mb-4 flex items-center gap-2">
-                <span className="w-8 h-[1px] bg-[#00d4ff]/30" />
+                <span className="w-8 h-[1px] bg-[#06b6d4]/30" />
                 {category}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -106,7 +106,7 @@ export default function Skills({ skills }: { skills: Skill[] }) {
                     className="glass-card p-5 group"
                   >
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="text-xl text-[#00d4ff] group-hover:scale-110 transition-transform">
+                      <div className="text-xl text-[#06b6d4] group-hover:scale-110 transition-transform">
                         {iconMap[skill.icon] || <span className="text-sm">⚡</span>}
                       </div>
                       <span className="font-medium text-white/90">{skill.name}</span>
@@ -117,7 +117,7 @@ export default function Skills({ skills }: { skills: Skill[] }) {
                         initial={{ width: 0 }}
                         animate={isInView ? { width: `${skill.level}%` } : {}}
                         transition={{ duration: 1.2, delay: catIdx * 0.1 + idx * 0.05, ease: 'easeOut' }}
-                        className="h-full rounded-full bg-gradient-to-r from-[#00d4ff] to-[#7c3aed]"
+                        className="h-full rounded-full bg-gradient-to-r from-[#06b6d4] to-[#8b5cf6]"
                       />
                     </div>
                   </motion.div>
