@@ -51,19 +51,75 @@ const fallbackSkills: Skill[] = [
 const fallbackExperiences: ExpType[] = [
   {
     id: 1,
-    company: 'Cloud Infrastructure Projects',
-    role: 'DevOps Engineer',
-    duration: '2022 - Present',
-    description: 'Designed and maintained cloud infrastructure on AWS using Terraform and CloudFormation. Implemented CI/CD pipelines with Jenkins and GitHub Actions. Managed Kubernetes clusters for microservices deployment. Automated infrastructure provisioning reducing deployment time by 70%.',
+    company: 'Ford Motor Company',
+    role: 'DevSecOps Engineer',
+    duration: 'Jul 2024 - Present',
+    description: 'Collaborating with NVC, IMG, and NA teams for Monorepo Architecture using Nx tool to manage microfrontends. Contributed to Tekton CI/CD pipeline development. Supported OpenShift CaaS infrastructure. Integrated Dynatrace with OneAgent for observability. Created a self-hosted cache server reducing Nx + OpenAPI build times by ~60%. Supported canary deployment strategies. Built a reverse proxy server in Golang for secure GitHub webhook communication with private networks.',
     sort_order: 1,
   },
   {
     id: 2,
-    company: 'Open Source & Community',
-    role: 'Technical Blogger & Contributor',
-    duration: '2021 - Present',
-    description: 'Active technical blogger on Medium covering DevOps practices, cloud-native technologies, and automation. Contributing to open-source DevOps tools and sharing knowledge with the developer community through articles and tutorials.',
+    company: 'Medium',
+    role: 'Technical Writer',
+    duration: 'Jul 2023 - Present',
+    description: 'Self-employed technical writer covering DevOps, Docker, Cybersecurity, Ethical Hacking, Python, and Software Development topics. Sharing knowledge and best practices with the developer community through in-depth articles and tutorials.',
     sort_order: 2,
+  },
+  {
+    id: 3,
+    company: 'Seervitax',
+    role: 'Full Stack Engineer',
+    duration: 'May 2023 - Present',
+    description: 'Freelance full stack development using HTML, CSS, Bootstrap, and API integrations for Seervi Tax Consultancy. Building and maintaining web applications for tax consulting services.',
+    sort_order: 3,
+  },
+  {
+    id: 4,
+    company: 'BLeap Digital',
+    role: 'Infrastructure Engineer',
+    duration: 'May 2024 - Jun 2024',
+    description: 'Freelance infrastructure engineering with PHP, Laravel, Docker, Apache, and DigitalOcean. Set up and maintained deployment infrastructure for digital products.',
+    sort_order: 4,
+  },
+  {
+    id: 5,
+    company: 'Alexandria',
+    role: 'WordPress Developer',
+    duration: 'May 2024 - Jun 2024',
+    description: 'Freelance WordPress development including deployment and hosting management using Hostinger and GoDaddy platforms.',
+    sort_order: 5,
+  },
+  {
+    id: 6,
+    company: 'Aaimaa Solutions',
+    role: 'DevOps Engineer',
+    duration: 'Jan 2024 - Feb 2024',
+    description: 'Internship focused on Docker, Frappe framework, AWS, and Amazon EKS. Contributed to containerized deployment workflows and cloud infrastructure management.',
+    sort_order: 6,
+  },
+  {
+    id: 7,
+    company: 'RadicalX (Reality AI Lab)',
+    role: 'Software Developer',
+    duration: 'Dec 2023 - Jan 2024',
+    description: 'Internship working on software development projects at Reality AI Lab, contributing to AI-powered applications and development workflows.',
+    sort_order: 7,
+  },
+  {
+    id: 8,
+    company: 'Technocrats Robotics',
+    role: 'ROBOCON Special Team',
+    duration: 'Jul 2021 - Oct 2023',
+    description: 'Full-time member of the ROBOCON Special Team, working on robotics competition projects. Collaborated on-site in Chennai on design, development, and competition preparation.',
+    sort_order: 8,
+  },
+  {
+    id: 9,
+    company: 'Ford Motor Company',
+    role: 'Software Developer Intern',
+    duration: 'May 2023 - Jun 2023',
+    description: 'Internship focused on Cybersecurity, Google Cloud Platform (GCP), React.js, and related technologies. Contributed to internal tools and security initiatives.',
+    sort_order: 9,
   },
 ];
 
@@ -129,7 +185,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#0a0a0a]">
+    <main className="min-h-screen bg-[#09090b]">
       <Navbar />
       <Hero
         name={profile.name}

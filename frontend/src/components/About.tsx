@@ -10,7 +10,7 @@ interface AboutProps {
 
 export default function About({ bio }: AboutProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-50px' });
 
   const highlights = [
     {
@@ -39,19 +39,19 @@ export default function About({ bio }: AboutProps) {
     <section id="about" className="py-24 relative">
       <div className="max-w-6xl mx-auto px-6" ref={ref}>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-sm font-mono text-[#00d4ff] tracking-wider uppercase">About Me</span>
+          <span className="text-sm font-mono text-[#06b6d4] tracking-wider uppercase">About Me</span>
           <h2 className="text-4xl md:text-5xl font-bold mt-3 text-white">
             Who I <span className="gradient-text">Am</span>
           </h2>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="glass-card p-8 md:p-12 mb-12"
@@ -66,7 +66,7 @@ export default function About({ bio }: AboutProps) {
 
           <div className="font-mono text-sm md:text-base leading-relaxed">
             <p className="text-white/50 mb-4">
-              <span className="text-[#00d4ff]">$</span> cat about-me.md
+              <span className="text-[#06b6d4]">$</span> cat about-me.md
             </p>
             <p className="text-white/60 leading-relaxed">{bio}</p>
           </div>
@@ -76,13 +76,13 @@ export default function About({ bio }: AboutProps) {
           {highlights.map((item, idx) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.3 + idx * 0.1 }}
               className="glass-card p-6 text-center group"
             >
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#00d4ff]/10 to-[#7c3aed]/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                <item.icon className="text-[#00d4ff] text-xl" />
+              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#06b6d4]/10 to-[#8b5cf6]/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                <item.icon className="text-[#06b6d4] text-xl" />
               </div>
               <h3 className="text-white font-semibold mb-2">{item.title}</h3>
               <p className="text-white/30 text-sm">{item.desc}</p>
