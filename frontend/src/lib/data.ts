@@ -1,0 +1,214 @@
+// Shared static portfolio data - single source of truth
+// Previously served from Go backend, now embedded in Next.js
+
+export interface Profile {
+  id: number;
+  name: string;
+  title: string;
+  bio: string;
+  email: string;
+  linkedin: string;
+  github: string;
+  medium: string;
+  avatar: string;
+}
+
+export interface Skill {
+  id: number;
+  name: string;
+  category: string;
+  level: number;
+  icon: string;
+}
+
+export interface Experience {
+  id: number;
+  company: string;
+  role: string;
+  duration: string;
+  description: string;
+  sort_order: number;
+}
+
+export interface Project {
+  id: number;
+  title: string;
+  description: string;
+  tech_stack: string;
+  link: string;
+  image: string;
+}
+
+export interface MediumPost {
+  title: string;
+  link: string;
+  description: string;
+  pub_date: string;
+  thumbnail: string;
+}
+
+export interface Contact {
+  id?: number;
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+
+export const profile: Profile = {
+  id: 1,
+  name: 'Kamalesh D',
+  title: 'DevSecOps Engineer & Technical Blogger',
+  bio: 'Passionate DevSecOps Engineer with expertise in cloud infrastructure, CI/CD pipelines, container orchestration, and infrastructure as code. I write about DevOps practices, cloud-native technologies, and automation on Medium. Dedicated to building reliable, scalable systems and sharing knowledge with the developer community.',
+  email: 'kkamalesh117@gmail.com',
+  linkedin: 'https://www.linkedin.com/in/kamalesh-d-4b0444219/',
+  github: 'https://github.com/kkamalesh117',
+  medium: 'https://medium.com/@kkamalesh117',
+  avatar: '/avatar.png',
+};
+
+export const skills: Skill[] = [
+  { id: 1, name: 'Docker', category: 'Containers & Orchestration', level: 90, icon: 'docker' },
+  { id: 2, name: 'Kubernetes', category: 'Containers & Orchestration', level: 85, icon: 'kubernetes' },
+  { id: 3, name: 'Helm', category: 'Containers & Orchestration', level: 82, icon: 'helm' },
+  { id: 4, name: 'Terraform', category: 'Infrastructure as Code', level: 88, icon: 'terraform' },
+  { id: 5, name: 'Ansible', category: 'Infrastructure as Code', level: 82, icon: 'ansible' },
+  { id: 6, name: 'AWS', category: 'Cloud Platforms', level: 90, icon: 'aws' },
+  { id: 7, name: 'Azure', category: 'Cloud Platforms', level: 78, icon: 'azure' },
+  { id: 8, name: 'GCP', category: 'Cloud Platforms', level: 75, icon: 'gcp' },
+  { id: 9, name: 'Jenkins', category: 'CI/CD', level: 88, icon: 'jenkins' },
+  { id: 10, name: 'GitHub Actions', category: 'CI/CD', level: 92, icon: 'github' },
+  { id: 11, name: 'GitLab CI', category: 'CI/CD', level: 85, icon: 'gitlab' },
+  { id: 12, name: 'ArgoCD', category: 'CI/CD', level: 78, icon: 'argocd' },
+  { id: 13, name: 'Linux', category: 'Operating Systems', level: 92, icon: 'linux' },
+  { id: 14, name: 'Python', category: 'Programming', level: 85, icon: 'python' },
+  { id: 15, name: 'Go', category: 'Programming', level: 80, icon: 'go' },
+  { id: 16, name: 'Bash', category: 'Programming', level: 90, icon: 'bash' },
+  { id: 17, name: 'Prometheus', category: 'Monitoring & Logging', level: 85, icon: 'prometheus' },
+  { id: 18, name: 'Grafana', category: 'Monitoring & Logging', level: 88, icon: 'grafana' },
+  { id: 19, name: 'ELK Stack', category: 'Monitoring & Logging', level: 80, icon: 'elastic' },
+  { id: 20, name: 'Nginx', category: 'Web Servers', level: 85, icon: 'nginx' },
+];
+
+export const experiences: Experience[] = [
+  {
+    id: 1,
+    company: 'Ford Motor Company',
+    role: 'DevSecOps Engineer',
+    duration: 'Jul 2024 - Present',
+    description:
+      'Collaborating with NVC, IMG, and NA teams for Monorepo Architecture using Nx tool to manage microfrontends. Contributed to Tekton CI/CD pipeline development. Supported OpenShift CaaS infrastructure. Integrated Dynatrace with OneAgent for observability. Created a self-hosted cache server reducing Nx + OpenAPI build times by ~60%. Supported canary deployment strategies. Built a reverse proxy server in Golang for secure GitHub webhook communication with private networks.',
+    sort_order: 1,
+  },
+  {
+    id: 2,
+    company: 'Medium',
+    role: 'Technical Writer',
+    duration: 'Jul 2023 - Present',
+    description:
+      'Self-employed technical writer covering DevOps, Docker, Cybersecurity, Ethical Hacking, Python, and Software Development topics.',
+    sort_order: 2,
+  },
+  {
+    id: 3,
+    company: 'Seervitax',
+    role: 'Full Stack Engineer',
+    duration: 'May 2023 - Present',
+    description:
+      'Freelance full stack development using HTML, CSS, Bootstrap, and API integrations for Seervi Tax Consultancy.',
+    sort_order: 3,
+  },
+  {
+    id: 4,
+    company: 'BLeap Digital',
+    role: 'Infrastructure Engineer',
+    duration: 'May 2024 - Jun 2024',
+    description:
+      'Freelance infrastructure engineering with PHP, Laravel, Docker, Apache, and DigitalOcean.',
+    sort_order: 4,
+  },
+  {
+    id: 5,
+    company: 'Alexandria',
+    role: 'WordPress Developer',
+    duration: 'May 2024 - Jun 2024',
+    description:
+      'Freelance WordPress development including deployment and hosting management using Hostinger and GoDaddy.',
+    sort_order: 5,
+  },
+  {
+    id: 6,
+    company: 'Aaimaa Solutions',
+    role: 'DevOps Engineer',
+    duration: 'Jan 2024 - Feb 2024',
+    description:
+      'Internship focused on Docker, Frappe framework, AWS, and Amazon EKS.',
+    sort_order: 6,
+  },
+  {
+    id: 7,
+    company: 'RadicalX (Reality AI Lab)',
+    role: 'Software Developer',
+    duration: 'Dec 2023 - Jan 2024',
+    description:
+      'Internship working on software development projects at Reality AI Lab.',
+    sort_order: 7,
+  },
+  {
+    id: 8,
+    company: 'Technocrats Robotics',
+    role: 'ROBOCON Special Team',
+    duration: 'Jul 2021 - Oct 2023',
+    description:
+      'Full-time member of the ROBOCON Special Team, working on robotics competition projects.',
+    sort_order: 8,
+  },
+  {
+    id: 9,
+    company: 'Ford Motor Company',
+    role: 'Software Developer Intern',
+    duration: 'May 2023 - Jun 2023',
+    description:
+      'Internship focused on Cybersecurity, Google Cloud Platform (GCP), React.js, and related technologies.',
+    sort_order: 9,
+  },
+];
+
+export const projects: Project[] = [
+  {
+    id: 1,
+    title: 'Kubernetes Auto-Scaler',
+    description:
+      'Custom Kubernetes horizontal pod autoscaler with predictive scaling based on traffic patterns and resource utilization metrics.',
+    tech_stack: 'Kubernetes,Go,Prometheus,Grafana',
+    link: 'https://github.com/kkamalesh117',
+    image: '',
+  },
+  {
+    id: 2,
+    title: 'CI/CD Pipeline Framework',
+    description:
+      'Reusable CI/CD pipeline templates for multi-cloud deployments supporting Docker, Kubernetes, and serverless architectures.',
+    tech_stack: 'Jenkins,GitHub Actions,Docker,Terraform',
+    link: 'https://github.com/kkamalesh117',
+    image: '',
+  },
+  {
+    id: 3,
+    title: 'Infrastructure Monitoring Dashboard',
+    description:
+      'Comprehensive monitoring solution with custom Grafana dashboards, Prometheus alerting, and automated incident response.',
+    tech_stack: 'Prometheus,Grafana,Python,AlertManager',
+    link: 'https://github.com/kkamalesh117',
+    image: '',
+  },
+  {
+    id: 4,
+    title: 'GitOps Deployment Platform',
+    description:
+      'Fully automated GitOps deployment platform using ArgoCD, Helm, and Kubernetes for zero-downtime deployments.',
+    tech_stack: 'ArgoCD,Helm,Kubernetes,Terraform',
+    link: 'https://github.com/kkamalesh117',
+    image: '',
+  },
+];

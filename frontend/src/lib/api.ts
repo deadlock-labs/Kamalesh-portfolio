@@ -1,42 +1,4 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8080/api';
-
-export interface Profile {
-  id: number;
-  name: string;
-  title: string;
-  bio: string;
-  email: string;
-  linkedin: string;
-  github: string;
-  medium: string;
-  avatar: string;
-}
-
-export interface Skill {
-  id: number;
-  name: string;
-  category: string;
-  level: number;
-  icon: string;
-}
-
-export interface Experience {
-  id: number;
-  company: string;
-  role: string;
-  duration: string;
-  description: string;
-  sort_order: number;
-}
-
-export interface Project {
-  id: number;
-  title: string;
-  description: string;
-  tech_stack: string;
-  link: string;
-  image: string;
-}
+export type { Profile, Skill, Experience, Project, MediumPost } from '@/lib/data';
 
 export interface BlogPost {
   id: number;
@@ -50,17 +12,9 @@ export interface BlogPost {
   updated_at: string;
 }
 
-export interface MediumPost {
-  title: string;
-  link: string;
-  description: string;
-  pub_date: string;
-  thumbnail: string;
-}
-
 async function fetchAPI<T>(endpoint: string): Promise<T | null> {
   try {
-    const res = await fetch(`${API_BASE}${endpoint}`, {
+    const res = await fetch(`/api${endpoint}`, {
       cache: 'no-store',
     });
     if (!res.ok) return null;
@@ -70,32 +24,36 @@ async function fetchAPI<T>(endpoint: string): Promise<T | null> {
   }
 }
 
-export async function getProfile(): Promise<Profile | null> {
-  return fetchAPI<Profile>('/profile');
+export async function getProfile() {
+  const { profile } = await import('@/lib/data');
+  return profile;
 }
 
-export async function getSkills(): Promise<Skill[]> {
-  return (await fetchAPI<Skill[]>('/skills')) || [];
+export async function getSkills() {
+  const { skills } = await import('@/lib/data');
+  return skills;
 }
 
-export async function getExperiences(): Promise<Experience[]> {
-  return (await fetchAPI<Experience[]>('/experiences')) || [];
+export async function getExperiences() {
+  const { experiences } = await import('@/lib/data');
+  return experiences;
 }
 
-export async function getProjects(): Promise<Project[]> {
-  return (await fetchAPI<Project[]>('/projects')) || [];
+export async function getProjects() {
+  const { projects } = await import('@/lib/data');
+  return projects;
 }
 
 export async function getBlogPosts(): Promise<BlogPost[]> {
-  return (await fetchAPI<BlogPost[]>('/blog')) || [];
+  return [];
 }
 
 export async function getBlogPost(slug: string): Promise<BlogPost | null> {
   return fetchAPI<BlogPost>(`/blog/${slug}`);
 }
 
-export async function getMediumPosts(): Promise<MediumPost[]> {
-  return (await fetchAPI<MediumPost[]>('/medium')) || [];
+export async function getMediumPosts() {
+  return (await fetchAPI<import('@/lib/data').MediumPost[]>('/medium')) || [];
 }
 
 export async function submitContact(data: {
@@ -105,7 +63,7 @@ export async function submitContact(data: {
   message: string;
 }): Promise<boolean> {
   try {
-    const res = await fetch(`${API_BASE}/contact`, {
+    const res = await fetch('/api/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data),

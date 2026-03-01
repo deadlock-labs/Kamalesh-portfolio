@@ -241,10 +241,10 @@ export default function AdminPage() {
         <div className="mt-12 glass-card p-6">
           <h3 className="text-lg font-semibold text-white mb-4">How It Works</h3>
           <div className="space-y-3 text-sm text-white/40">
-            <p>• <strong className="text-white/60">Static Data:</strong> Portfolio data (profile, skills, experiences, projects) is served from the Go backend as static JSON — no database required.</p>
+            <p>• <strong className="text-white/60">Static Data:</strong> Portfolio data (profile, skills, experiences, projects) is served from Next.js API routes — no separate backend required.</p>
             <p>• <strong className="text-white/60">Medium RSS:</strong> Blog articles are automatically fetched from your Medium RSS feed in real-time.</p>
             <p>• <strong className="text-white/60">Authentication:</strong> This admin panel is protected by Google OAuth 2.0, restricted to your email only.</p>
-            <p>• <strong className="text-white/60">To update content:</strong> Edit the static data in the backend <code className="text-[#06b6d4] font-mono">handlers/handlers.go</code> file and redeploy.</p>
+            <p>• <strong className="text-white/60">To update content:</strong> Edit the static data in <code className="text-[#06b6d4] font-mono">src/lib/data.ts</code> and redeploy.</p>
           </div>
         </div>
 
