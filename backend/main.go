@@ -6,24 +6,16 @@ import (
 	"os"
 	"strings"
 
-	"github.com/deadlock-labs/portfolio-backend/database"
 	"github.com/deadlock-labs/portfolio-backend/handlers"
 	"github.com/gorilla/mux"
 	"github.com/rs/cors"
 )
 
 func main() {
-	dbPath := os.Getenv("DB_PATH")
-	if dbPath == "" {
-		dbPath = "./portfolio.db"
-	}
-
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8080"
 	}
-
-	database.InitDB(dbPath)
 
 	r := mux.NewRouter()
 
@@ -35,13 +27,6 @@ func main() {
 	api.HandleFunc("/skills", handlers.GetSkills).Methods("GET")
 	api.HandleFunc("/experiences", handlers.GetExperiences).Methods("GET")
 	api.HandleFunc("/projects", handlers.GetProjects).Methods("GET")
-
-	// Blog routes
-	api.HandleFunc("/blog", handlers.GetBlogPosts).Methods("GET")
-	api.HandleFunc("/blog/{slug}", handlers.GetBlogPost).Methods("GET")
-	api.HandleFunc("/blog", handlers.CreateBlogPost).Methods("POST")
-	api.HandleFunc("/blog/{slug}", handlers.UpdateBlogPost).Methods("PUT")
-	api.HandleFunc("/blog/{slug}", handlers.DeleteBlogPost).Methods("DELETE")
 
 	// Medium RSS
 	api.HandleFunc("/medium", handlers.GetMediumPosts).Methods("GET")
@@ -59,7 +44,7 @@ func main() {
 	}
 	c := cors.New(cors.Options{
 		AllowedOrigins:   origins,
-		AllowedMethods:   []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowedMethods:   []string{"GET", "POST", "OPTIONS"},
 		AllowedHeaders:   []string{"Content-Type", "Authorization"},
 		AllowCredentials: true,
 	})

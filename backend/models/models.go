@@ -1,7 +1,5 @@
 package models
 
-import "time"
-
 type Profile struct {
 	ID       int    `json:"id"`
 	Name     string `json:"name"`
@@ -40,18 +38,6 @@ type Project struct {
 	Image       string `json:"image"`
 }
 
-type BlogPost struct {
-	ID        int       `json:"id"`
-	Title     string    `json:"title"`
-	Slug      string    `json:"slug"`
-	Content   string    `json:"content"`
-	Excerpt   string    `json:"excerpt"`
-	Tags      string    `json:"tags"`
-	Published bool      `json:"published"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedAt time.Time `json:"updated_at"`
-}
-
 type MediumPost struct {
 	Title       string `json:"title"`
 	Link        string `json:"link"`
@@ -61,10 +47,9 @@ type MediumPost struct {
 }
 
 type Contact struct {
-	ID        int       `json:"id"`
-	Name      string    `json:"name"`
-	Email     string    `json:"email"`
-	Subject   string    `json:"subject"`
-	Message   string    `json:"message"`
-	CreatedAt time.Time `json:"created_at"`
+	ID      int    `json:"id"`
+	Name    string `json:"name"`
+	Email   string `json:"email"`
+	Subject string `json:"subject"`
+	Message string `json:"message"`
 }
